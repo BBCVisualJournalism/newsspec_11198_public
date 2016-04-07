@@ -1,0 +1,213 @@
+table {
+    border: 1px solid $color--brand-grey__dark;
+    display: block;
+    overflow: auto;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+
+    .oldie & {
+        white-space: normal;
+    }
+
+    @include break($break--medium) {
+        border: 0;
+        display: table;
+        white-space: normal;
+        width: auto;
+    }
+
+    &.no-flex {
+        border: 0;
+        display: table;
+        // max-width: 
+        white-space: normal;
+        width: 100%;   
+    }
+}
+
+thead,
+tbody {
+    font-size: 0; //Reset to overcome inline-block spacing issue
+    line-height: 1;
+
+    tr {
+        font-size: $base--font-size; //Reset to overcome inline-block spacing issue
+
+        .oldie & {
+            display: table-row;
+        }
+    }
+
+    td {
+        font-size: 1em; //Reset to overcome inline-block spacing issue
+
+        .oldie & {
+            display: table-cell;
+            float: left;
+            min-width: 20%;
+            width: 100%;
+
+            &:before {
+                content: attr(data-heading);
+                display: block;
+                font-weight: bold;
+            }
+        }
+    }
+
+    th {
+        text-align: left;
+    }
+
+    @include break($break--medium) {
+        font-size: 1em;
+
+        td + td,
+        th + th {
+            border-left: 1px solid $base--border-color;
+        }
+
+        tr,
+        td {
+            font-size: 1em;
+        }
+
+        td {
+            .oldie & {
+                display: table-cell;
+                float: none;
+                min-width: none;
+                width: auto;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .no-flex & {
+        font-size: 1em;
+
+        td + td,
+        th + th {
+            border-left: 1px solid $base--border-color;
+        }
+
+        tr,
+        td {
+            font-size: 1em;
+        }
+
+        td {
+            .oldie & {
+                display: table-cell;
+                float: none;
+                min-width: none;
+                width: auto;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+thead {
+    background-color: $color--brand-grey__dark;
+    color: $color--brand-white;
+    display: block;
+    float: left;
+    font-weight: bold;
+
+    tr {
+        border-bottom: 0;
+        display: block;
+    }
+
+    th {
+        .oldie & {
+            display: none;
+        }
+    }
+
+    @include break($break--medium) {
+        display: table-header-group;
+        float: none;
+
+        tr {
+            display: table-row;
+        }
+
+        th {
+            .oldie & {
+                display: table-cell;
+            }
+        }
+    }
+
+    .no-flex & {
+        display: table-header-group;
+        float: none;
+
+        tr {
+            display: table-row;
+        }
+
+        th {
+            .oldie & {
+                display: table-cell;
+            }
+        }
+    }
+}
+
+tbody {
+    display: block;
+    position: relative;
+    width: auto;
+
+    tr:nth-child(2n-1) {
+        background-color: $color--brand-grey__light;
+    }
+
+    @include break($break--medium) {
+        display: table-row-group;
+    }
+
+    .no-flex & {
+        display: table-row-group;
+    }
+}
+
+tr {
+    border-bottom: 0;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+
+    @include break($break--medium) {
+        display: table-row;
+    }
+
+    .no-flex & {
+        display: table-row;
+    }
+}
+
+td,
+th {
+    display: block;
+    padding: .6em;
+    vertical-align: top;
+
+    @include break($break--medium) {
+        display: table-cell;
+    }
+
+    .no-flex & {
+        display: table-cell;
+    }
+}

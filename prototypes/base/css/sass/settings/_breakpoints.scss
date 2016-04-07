@@ -1,0 +1,40 @@
+//Breakpoints for repeated use across a project
+//Define site-wide breakpoints here
+
+//Format: string
+//e.g. "(min-width: 320px)";
+
+//GEL
+$break--g4: "(min-width: 1008px)";
+$break--g3: "(min-width: 800px)";
+$break--g2: "(min-width: 600px)";
+
+$break--g1-only: "(max-width: 599px)";
+
+
+//NEWS
+// 0-319
+// 320-479
+// 480-599
+// 600-1007
+// 1008+
+
+
+$break--g3-and-a-bit: "(min-width: 640px)";
+
+$break--480: "(min-width: 480px)";
+
+//320px
+$break--group-b: "(min-width: 20em)";
+
+//600px
+$break--group-c: "(min-width: 37.5em)";
+$break--group-c-only: "(min-width: 37.5em) and (max-width: 62.9375em)";
+
+//1008px
+$break--group-d: "(min-width: 63em)";
+
+$break--small: $break--group-b;
+$break--medium: $break--group-c;
+$break--medium-only: $break--group-c-only;
+$break--large: $break--group-d;

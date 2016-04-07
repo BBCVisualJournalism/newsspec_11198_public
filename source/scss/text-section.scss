@@ -1,0 +1,111 @@
+.text-section--row{
+    clear: both;
+    overflow: hidden;
+    line-height: 1.375em;
+    position: relative;
+    margin-top: 2.5em;
+
+    @include respondMinMax(830px, false){
+        overflow: visible;
+    }
+
+    @include respondMinMax(530px, false){
+        .text-section--col{
+            width: 50%;
+        }
+        .text-section--col__1{
+            float: left;
+            padding-right: 8px;
+        }
+        .text-section--col__2{
+            float: right;
+            padding-left: 8px;
+        }
+        
+        .text-section--col__robot{
+            position: absolute;
+
+            &.text-section--col__2{
+                position: absolute;
+                bottom: 1em;
+                right: 0;
+            }
+            &.text-section--col__1{
+                position: absolute;
+                bottom: 1em;
+                left: 0;
+            }
+        }
+    }
+
+    .text-section--col__text{
+        h2 {
+            font-weight:normal;
+        }
+        p {
+
+            a {
+                text-decoration: none;
+                border-bottom: 1px solid #dcdcdc;
+                color: #222;
+                font-weight: bold;
+            }
+            a:hover {
+                color: #1167a8;
+            }
+        }
+    }
+
+    @include respondMinMax(830px, false){
+        .text-section--col__text{
+            width: 62.5%;
+        }
+        .text-section--col__robot{
+            width: 37.5%;
+
+            .robot-image{
+                width: 133%;
+            }
+            &.text-section--col__1 .robot-image{
+                margin: 7.8em 0 0 -12.5%;
+            }
+            &.text-section--col__2{
+                float: right;
+                position: static;
+                bottom: auto;
+                right: auto;
+            }
+            &.text-section--col__1{
+                float: left;
+                position: static;
+                bottom: auto;
+                left: auto;
+            }
+        }
+    }
+
+    @include respondMinMax(880px, false){
+        .text-section--col__robot{
+            &.text-section--col__1 .robot-image{
+                // margin: 7.8em 0 0 -12.5%;
+            }
+            &.text-section--col__2{
+                margin-right: -12.5%;
+            }
+            &.text-section--col__1{
+                margin-left: -12.5%;
+            }
+        }
+        .text-section--col__text{
+            width:70%;
+        }
+    }
+
+    .robot-image{
+        width: 100%;
+        max-width: 265px;
+        display: block;
+        margin: 1em auto 0;
+    }
+
+}

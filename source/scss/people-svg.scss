@@ -1,0 +1,451 @@
+@mixin transform($transforms) {
+    visibility: visible;
+    -moz-transform: $transforms;
+    -webkit-transform: $transforms;
+    -o-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+.top--wrapper{
+    position: relative;
+}
+.people-svg--wrapper{
+    width: 55%;
+    @include respondMinMax(500px, false){
+        position: absolute;
+        width: 50%;
+        left: 345px;
+    }
+    @include respondMinMax(768px, false){
+        width: 65%;
+        left: 300px;
+    }
+
+    @include respondMinMax(500px, 678px){
+        left: auto;
+        right: 0;
+        width:35%;
+        top:190px;
+    }
+}
+
+.people-animation--header {
+    font-size: 1.25em;
+    line-height: 1.2;
+    margin: 2em 1em 1.25em;
+
+    @include respondMinMax(480px, false){
+        width: 85%;
+        font-size: 1.75em;
+    }
+    @include respondMinMax(500px, false){
+        width: 75%;
+        margin: 2em 0 1.5em;
+    }
+    @include respondMinMax(600px, false){
+        margin: 3em 0 1.5em;
+    }
+}
+
+.people-svg{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 110%;
+
+    svg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    p {
+        position: absolute;
+        top: -10px;
+        right: -60%;
+        left: 100%;
+        line-height: 1.2;
+        font-size: 1em;
+
+        @include respondMinMax(360px, false){
+            font-size: 1.125em;
+        }
+        @include respondMinMax(480px, false){
+            font-size: 1.25em;
+        }
+
+        @include respondMinMax(500px, false){
+            left: -105%;
+            top: -30px;
+        }
+
+        @include respondMinMax(768px, false){
+            right: 0;
+            left: -71%;
+        }
+
+        @include respondMinMax(500px, 678px){
+            left: -180%;
+            top: -150px;
+        }
+
+        strong{
+            display: block;
+            font-size: 1.12em;
+            color: $color--brand-teal;
+        }
+    }
+}
+
+
+@include keyframes(blink) {
+    0% {
+        fill: #F47920 !important;
+    }
+    33% {
+        fill: #F47920 !important;
+    }
+    50% {
+        fill: #666 !important;
+    }
+    66% {
+        fill: #F47920 !important;
+    }
+    100% {
+        fill: #F47920 !important;
+    }
+}
+
+@include keyframes(anim_down_ru) {
+    0%{
+        @include transform(translate3d(-5px, -130px, 0));
+    }
+    80%{
+        @include transform(translate3d(-5px, 5px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+
+@include keyframes(anim_down_lu) {
+    0%{
+        @include transform(translate3d(5px, -130px, 0));
+    }
+    80%{
+        @include transform(translate3d(5px, 5px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+
+@include keyframes(anim_down_rd) {
+    0%{
+        @include transform(translate3d(-5px, -130px, 0));
+    }
+    80%{
+        @include transform(translate3d(-5px, -5px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+
+@include keyframes(anim_down_ld) {
+    0%{
+        @include transform(translate3d(5px, -130px, 0));
+    }
+    80%{
+        @include transform(translate3d(5px, -5px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+
+@include keyframes(anim_up_ru) {
+    0%{
+        @include transform(translate3d(-5px, 170px, 0));
+    }
+    80%{
+        @include transform(translate3d(-5px, 5px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+@include keyframes(anim_up_lu) {
+    0%{
+        @include transform(translate3d(5px, 170px, 0));
+    }
+    80%{
+        @include transform(translate3d(5px, 5px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+@include keyframes(anim_up) {
+    0%{
+        @include transform(translate3d(0, 170px, 0));
+    }
+    80%{
+        @include transform(translate3d(0, 7px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+@include keyframes(anim_down) {
+    0%{
+        @include transform(translate3d(0, -130px, 0));
+    }
+    80%{
+        @include transform(translate3d(0, -7px, 0));
+    }
+    100%{
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+
+
+.robot-0pc #leg_1_boot_f,
+.robot-0pc #leg_1_boot_m,
+.robot-0pc #leg_2_top_f,
+.robot-0pc #leg_2_top_m,
+.robot-0pc #top_arm_2_f,
+.robot-0pc #top_arm_2_m,
+.robot-0pc #front_arm_f_1,
+.robot-0pc #front_arm_m_1,
+.robot-0pc #back_shoulder_f,
+.robot-0pc #back_shoulder_m,
+
+.robot-20pc #leg_1_boot_f,
+.robot-20pc #leg_1_boot_m,
+.robot-20pc #leg_2_top_f,
+.robot-20pc #leg_2_top_m,
+.robot-20pc #front_arm_f,
+.robot-20pc #front_arm_m,
+.robot-20pc #mid_piece_m,
+.robot-20pc #mid_piece_f,
+.robot-20pc #top_arm_2_f,
+.robot-20pc #top_arm_2_m,
+.robot-20pc #front_arm_f_1,
+.robot-20pc #front_arm_m_1,
+.robot-20pc #back_shoulder_f,
+.robot-20pc #back_shoulder_m {
+    -webkit-animation: none !important;
+    animation: none !important;
+}
+
+
+
+.people--no-items #leg_2_boot_f,
+.people--no-items #leg_2_top_f,
+.people--no-items #leg_1_boot_m,
+.people--no-items #leg_2_top_m,
+.people--no-items #front_arm_m_1,
+.people--no-items #back_shoulder_f,
+.people--no-items #top_arm_2_f,
+.people--no-items #front_arm_f_1,
+.people--no-items #back_shoulder_m,
+.people--no-items #top_arm_2_m,
+.people--no-items #leg_1_boot_f,
+.people--no-items #leg_2_boot_m,
+.people--no-items #hand_2_f,
+.people--no-items #hand_2_m,
+.people--no-items #leg_1_top_f,
+.people--no-items #leg_1_top_m,
+.people--no-items #front_arm_f,
+.people--no-items #front_arm_m,
+.people--no-items #mid_piece_m,
+.people--no-items #mid_piece_f,
+.people--no-items #front_hand_f,
+.people--no-items #front_hand_m,
+.people--no-items #torso_f,
+.people--no-items #torso_m,
+.people--no-items #top_arm_1_f,
+.people--no-items #top_arm_1_m,
+.people--no-items #front_shoulder_f,
+.people--no-items #front_shoulder_m,
+.people--no-items #face_f,
+.people--no-items #face_m,
+.people--no-items #eyepiece_f,
+.people--no-items #eyepiece_m,
+
+.robot-0pc #leg_2_boot_f,
+.robot-0pc #leg_2_boot_m,
+.robot-0pc #hand_2_f,
+.robot-0pc #hand_2_m,
+.robot-0pc #leg_1_top_f,
+.robot-0pc #leg_1_top_m,
+.robot-0pc #front_arm_f,
+.robot-0pc #front_arm_m,
+.robot-0pc #mid_piece_m,
+.robot-0pc #mid_piece_f,
+.robot-0pc #front_hand_f,
+.robot-0pc #front_hand_m,
+.robot-0pc #torso_f,
+.robot-0pc #torso_m,
+.robot-0pc #top_arm_1_f,
+.robot-0pc #top_arm_1_m,
+.robot-0pc #front_shoulder_f,
+.robot-0pc #front_shoulder_m,
+.robot-0pc #face_f,
+.robot-0pc #face_m,
+.robot-0pc #eyepiece_f,
+.robot-0pc #eyepiece_m,
+
+.robot-20pc #leg_2_boot_f,
+.robot-20pc #leg_2_boot_m,
+.robot-20pc #hand_2_f,
+.robot-20pc #hand_2_m,
+.robot-20pc #leg_1_top_f,
+.robot-20pc #leg_1_top_m,
+.robot-20pc #front_hand_f,
+.robot-20pc #front_hand_m,
+.robot-20pc #torso_f,
+.robot-20pc #torso_m,
+.robot-20pc #top_arm_1_f,
+.robot-20pc #top_arm_1_m,
+.robot-20pc #front_shoulder_f,
+.robot-20pc #front_shoulder_m,
+.robot-20pc #face_f,
+.robot-20pc #face_m,
+.robot-20pc #eyepiece_f,
+.robot-20pc #eyepiece_m{
+    visibility: hidden;
+}
+
+
+
+.robot-40pc #leg_2_boot_f,
+.robot-40pc #leg_2_boot_m,
+.robot-40pc #leg_1_top_f,
+.robot-40pc #leg_1_top_m,
+.robot-40pc #torso_f,
+.robot-40pc #torso_m,
+.robot-40pc #front_shoulder_f,
+.robot-40pc #front_shoulder_m,
+.robot-40pc #face_f,
+.robot-40pc #face_m {
+    display: none;
+    visibility: hidden;
+}
+
+.robot-60pc #torso_f,
+.robot-60pc #torso_m,
+.robot-60pc #face_f,
+.robot-60pc #face_m {
+    display: none;
+    visibility: hidden;
+}
+
+.has-animation-support{
+
+    .robot-0pc *,
+    .robot-20pc * {
+        -webkit-animation-direction: reverse !important;
+        -webkit-animation-fill-mode: backwards !important;
+        animation-direction: reverse !important;
+        animation-fill-mode: both !important;
+    }
+
+    .people-svg__is-animating{
+
+        #leg_1_boot_f,
+        #leg_1_boot_m {
+            -webkit-animation: anim_up 2s ease-in-out;
+            animation: anim_up 2s ease-in-out;
+            will-change: transform;
+        }
+
+        #back_shoulder_f,
+        #back_shoulder_m, 
+        #front_shoulder_f,
+        #front_shoulder_m {
+            -webkit-animation: anim_down 2s ease-in-out;
+            animation: anim_down 2s ease-in-out;
+            will-change: transform;
+        }
+
+        #hand_2_f,
+        #front_arm_f,
+        #top_arm_2_f {
+            -webkit-animation: anim_down_rd 2s ease-in-out;
+            animation: anim_down_rd 2s ease-in-out;
+            will-change: transform;   
+        }
+
+        #hand_2_m,
+        #top_arm_2_m,
+        #front_arm_m {
+            -webkit-animation: anim_down_ld 2s ease-in-out;
+            animation: anim_down_ld 2s ease-in-out;
+            will-change: transform;   
+        }
+
+        #eyepiece_f,
+        #face_m,
+        #front_hand_f,
+        #torso_m,
+        #top_arm_1_f,
+        #front_arm_f_1 {
+            -webkit-animation: anim_down_lu 2s ease-in-out;
+            animation: anim_down_lu 2s ease-in-out;
+            will-change: transform;   
+        }
+
+        #eyepiece_m,
+        #face_f,
+        #front_hand_m,
+        #torso_f,
+        #top_arm_1_m,
+        #front_arm_m_1 {
+            -webkit-animation: anim_down_ru 2s ease-in-out;
+            animation: anim_down_ru 2s ease-in-out;
+            will-change: transform;   
+        }
+
+        #leg_1_top_m,
+        #leg_2_top_f,
+        #leg_2_boot_f,
+        #mid_piece_f {
+            -webkit-animation: anim_up_ru 2s ease-in-out;
+            animation: anim_up_ru 2s ease-in-out;
+            will-change: transform;   
+        }
+
+        #leg_1_top_f,
+        #leg_2_top_m,
+        #leg_2_boot_m,
+        #mid_piece_m {
+            -webkit-animation: anim_up_lu 2s ease-in-out;
+            animation: anim_up_lu 2s ease-in-out;
+            will-change: transform;   
+        }
+
+        #eyepiece1,
+        #eyepiece2 {
+            -webkit-animation: blink 2s ease-in-out infinite;
+            animation: blink 2s ease-in-out infinite;
+            will-change: display;
+        }
+
+    }
+}

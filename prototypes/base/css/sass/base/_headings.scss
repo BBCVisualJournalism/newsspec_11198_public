@@ -1,0 +1,293 @@
+// #HEADINGS
+// Heading-level styling
+
+%quad-trafalgar,
+.quad-trafalgar {
+    font-size: 60px;
+    line-height: 64px;
+    letter-spacing: inherit;
+    font-weight: 700;
+
+    @include break($break--small) {
+        font-size: 64px;
+        line-height: 68px;
+    }
+
+    @include break($break--medium) {
+        font-size: 76px;
+        line-height: 80px;
+    }
+}
+
+/* Group A 0-319px */
+%double-trafalgar,
+.double-trafalgar {
+    font-size: 30px;
+    line-height: 32px;
+    letter-spacing: inherit;
+    font-weight: 700;
+
+    @include break($break--small) {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    @include break($break--medium) {
+        font-size: 48px;
+        line-height: 52px;
+    }
+}
+
+%trafalgar,
+.trafalgar {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -1px;
+    font-weight: 700;
+
+    @include break($break--small) {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    @include break($break--medium) {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    @include break($break--large) {
+        font-size: 32px;
+        line-height: 36px;
+    }
+}
+
+%double-pica,
+.double-pica {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -1px;
+
+    @include break($break--medium) {
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+
+%great-primer,
+.great-primer {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+    font-weight: 700;
+
+    @include break($break--medium) {
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+    }
+}
+
+%pica-gel,
+.pica-gel {
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: inherit;
+    
+    @include break($break--small) {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    @include break($break--medium-only) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+%pica,
+.pica {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: inherit;
+
+    @include break($break--medium-only) {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
+%long-primer,
+.long-primer {
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: inherit;
+
+    @include break($break--medium) {
+        line-height: 19px;
+    }
+
+    @include break($break--large) {
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+%brevier,
+.brevier {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: inherit;
+
+    @include break($break--small) {
+        line-height: 18px;
+    }
+
+    @include break($break--large) {
+        font-size: 13px;
+        line-height: 16px;
+    }
+}
+
+%minion,
+.minion {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: inherit;
+
+    @include break($break--medium-only) {
+        font-size: 13px;
+        line-height: 16px;
+    }
+}
+
+%paragon,
+.paragon {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+}
+
+%english,
+.english {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: inherit;
+    font-weight: 700;
+}
+
+%brilliant,
+.brilliant {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: inherit;
+}
+
+%giga,
+.giga {
+    @extend %quad-trafalgar;
+}
+
+%mega,
+.mega {
+    @extend %double-trafalgar;
+}
+
+.alpha,
+%alpha {
+    @extend %trafalgar;
+}
+
+%alpha--headline {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -1px;
+    font-weight: 700;
+
+    @include break($break--medium) {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    @include break($break--large) {
+        font-size: 32px;
+        line-height: 36px;
+    }
+}
+
+.beta,
+%beta {
+    @extend %double-pica;
+}
+
+.gamma,
+%gamma {
+    @extend %great-primer;
+}
+
+.delta,
+%delta {
+    @extend %pica;
+}
+
+.epsilon,
+%epsilon {
+    @extend %long-primer;
+}
+
+.zeta,
+%zeta {
+    @extend %minion;
+}
+
+%mega,
+.mega,
+%alpha,
+.alpha,
+%beta,
+.beta,
+%gamma,
+.gamma,
+%delta,
+.delta,
+%epsilon,
+.epsilon {
+    @include text-rendering;
+    font-family: $font--display;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+}
+
+h1 {
+    @extend %alpha;
+}
+
+h2 {
+    @extend %beta;
+}
+
+h3 {
+    @extend %gamma;
+}
+
+h4 {
+    @extend %epsilon;
+}
+
+h5 {
+    // @extend %zeta;
+}
+
+h6 {
+
+}
+
+.page-headline {
+    @extend %alpha--headline;
+    color: $color--brand-black__headings;
+    margin-bottom: 1rem;
+}

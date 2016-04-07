@@ -1,0 +1,364 @@
+label,
+.radio-group-label,
+.checkbox-group-label {
+    display: block;
+    font-weight: bold;
+    margin: 0 0 .5em;
+
+    &.error {
+        color: $color--error;
+    }
+}
+
+.required-key {
+    margin-bottom: 1.25em;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=tel],
+input[type=search],
+input[type=number],
+input[type=submit],
+input[type=button],
+button,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    border: 1px solid $base--border-color;
+    border-radius: 0;
+    box-sizing: border-box;
+    font-family: $font--sans;
+    font-size: 1em;
+    line-height: 1.4em;
+    margin: 0 0 1.25em;
+    padding: .55em .6em .5em;
+    vertical-align: top;
+    width: 100%;
+
+    -webkit-transition: border .5s ease;
+    -moz-transition: border .5s ease;
+    -ms-transition: border .5s ease;
+    -o-transition: border .5s ease;
+    transition: border .5s ease;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: $color--brand-blue;
+        outline-offset: -1px;
+    }
+
+    .button--combo + & {
+        border-color: $color--brand-teal;
+        display: inline-block;
+        width: auto;
+    }
+
+    &.stacked,
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.semi-stacked {
+        margin-bottom: .5rem;
+    }
+}
+
+textarea {
+    display: block;
+}
+
+.button--naked {
+    @extend %button--naked;
+    display: inline-block;
+}
+
+input[type=submit],
+input[type=button],
+button {
+    @extend %button--naked;
+
+    &.button--cta {
+        @extend %button--cta;
+    }
+
+    &.button--secondary {
+        @extend %button--secondary;
+    }
+
+    &.button--secondary--white {
+        @extend %button--secondary--white;
+    }
+
+    &.button--link {
+        @extend %button--link;
+    }
+
+    &.button--share {
+        @extend %button--share;
+    }
+
+    &.button--inactive {
+        @extend %button--inactive;
+    }
+
+    &.button--loading {
+        @extend %button--loading;
+        padding-left: 1.75em;
+    }
+
+    &.button--prev {
+        @extend %button--cta-reverse;
+    }
+
+    &.button--next {
+        @extend %button--cta;
+    }
+
+    &.button--reset {
+        @extend %button--reset;
+    }
+
+    &.button--combo {
+        margin-right: 0;
+        padding-right: .5em;
+    }
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;  //Firefox v30 does not support this, see @supports rule below
+    -ms-appearance: none;
+    appearance: none;
+    background: url('../img/frame/icon--select-arrow.svg') right center no-repeat;
+    background-color: $color--brand-white;
+    background-size: 1.3rem;
+    border-radius: 0;
+    border: solid 1px $base--border-color;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1em;
+    line-height: 1.4em;
+    margin: 0 0 1.625em;
+    max-width: 100%;
+    padding: .6em 2em .6em .6em;
+    text-indent: 0.01px;  //Firefox arrow styling hack - versions < 30
+    -ms-text-overflow: '';
+    -o-text-overflow: '';
+    text-overflow: '';
+    -webkit-transition: border .5s ease;
+    -moz-transition: border .5s ease;
+    -ms-transition: border .5s ease;
+    -o-transition: border .5s ease;
+    transition: border .5s ease;
+    width: 100%;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: $color--brand-teal;
+        outline-offset: -1px;
+    }
+
+    .oldie & {
+        height: 2.4em;
+        line-height: 2.4em;
+        padding: 0;
+        background: #fff;
+    }
+
+    &.stacked,
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.semi-stacked {
+        margin-bottom: .5rem;
+    }
+
+    //Reset select arrows from Firefox v30 - -moz-linear-gradient limits to Fx, background-blend-mode was implemented in v30 so ignores < 30
+    @supports (background: -moz-linear-gradient(#fff, #fff)) and (background-blend-mode: darken) {
+        background: -moz-linear-gradient(#fff, #fff);
+        padding: .6em;
+        text-indent: 0;
+        text-overflow: inherit;
+    }
+
+    @include break("ie8") {
+        font-size: 100%;
+        height: 2.7em;
+        line-height: 1;
+        vertical-align: middle;
+    }
+}
+
+.radio-group,
+.checkbox-group {
+    margin: 1.5em 0;
+}
+
+.radio-item,
+.checkbox-item {
+    margin: 0 0 .6em;
+}
+
+.checkbox-item input[type=checkbox],
+.radio-item input[type=radio] {
+    float: left;
+}
+
+.checkbox-item label,
+.radio-item label {
+    display: block;
+    font-weight: normal;
+    margin-left: 2em;
+    padding-left: 0;
+    position: relative;
+}
+
+input[type=radio],
+input[type=checkbox] {
+    position: relative;
+    top: .25em;
+}
+
+//Error handling
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=tel],
+input[type=search],
+input[type=number],
+select,
+textarea {
+    &.error {
+        border-color: $color--error;
+        color: $color--error;
+    }
+}
+
+.form-error-message {
+    background: $color--error-light;
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+}
+
+.form-error-message__heading {
+    font-family: $font--sans;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: .5em;
+}
+
+.form-error-message__content {
+    line-height: 1.2;
+}
+
+.option-group {
+    margin-bottom: .875em;
+}
+
+.option-group__item {
+    position: relative;
+}
+
+.option-group__item + .option-group__item {
+    /*margin-top: .5em;*/
+}
+
+.option-group input[type="checkbox"],
+.option-group input[type="radio"],
+.option-group label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.option-group__item {
+    display: block;
+}
+
+.option-group label {}
+
+.option-group input[type="checkbox"],
+.option-group input[type="radio"] {
+    /*position: absolute;*/
+    float: left;
+    width: 0;
+    top: 0;
+    opacity: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.option-group input[type="checkbox"]:hover,
+.option-group input[type="radio"]:hover {
+    cursor: pointer;
+}
+
+.option-group input[type="checkbox"] + label {
+    background-image: url('../img/frame/checkbox.svg');
+}
+
+.option-group input[type="radio"] + label {
+    background-image: url('../img/frame/radio.svg');
+}
+
+.option-group input[type="checkbox"] + label,
+.option-group input[type="radio"] + label {
+    background-position: -.4rem -.4rem;
+    background-repeat: no-repeat;
+    padding-left: 1.8em;
+    min-height: 1.6em;
+    display: inline-block;
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-right: 1em;
+}
+
+
+.option-group__item input[type="checkbox"] + label,
+.option-group__item input[type="radio"] + label {
+    margin-right: 0;
+}
+
+.option-group input[type="checkbox"]:hover + label,
+.option-group input[type="checkbox"]:focus + label,
+.option-group input[type="checkbox"] + label:hover,
+.option-group input[type="radio"]:hover + label,
+.option-group input[type="radio"]:focus + label,
+.option-group input[type="radio"] + label:hover {
+    background-position: -.4rem -2.4rem;
+}
+
+.option-group input[type="checkbox"]:checked + label,
+.option-group input[type="radio"]:checked + label {
+    background-position: -.4rem -4.4rem;
+}
+
+.option-group input[type="checkbox"]:hover:checked + label,
+.option-group input[type="checkbox"]:focus:checked + label,
+.option-group input[type="checkbox"]:checked + label:hover,
+.option-group input[type="radio"]:hover:checked + label,
+.option-group input[type="radio"]:focus:checked + label,
+.option-group input[type="radio"]:checked + label:hover {
+    background-position: -.4rem -6.4rem;
+}

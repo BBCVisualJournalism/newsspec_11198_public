@@ -1,0 +1,12 @@
+body{
+    font-size: 16px;
+    font-family: $font--display;
+    color: #333;
+}
+
+.results-page{
+    display: none;
+    overflow: visible;
+    max-width: 650px;
+    margin: auto;
+}

@@ -1,0 +1,448 @@
+<style>
+    .calculator {
+        position: relative;
+        overflow: hidden;
+        background: transparent;
+    }
+
+    .scene--background {
+        height: 0;
+        padding-bottom: 34.813627%;
+        background: url('img/scene.png') center bottom no-repeat;
+        background: none, none;
+    }
+    .ie8.scene--background {
+        background: none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='img/scene.png', sizingMethod='scale');
+    }
+
+    .character-wrapper {
+        background: url('img/characters-std.png') center bottom no-repeat;
+        background: none, none;
+        width: 66.667%;
+        height: 0;
+        padding-bottom: 29%;
+        margin: 0 auto;
+    }
+
+    .ie8.character-wrapper {
+        background: none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='img/characters.png', sizingMethod='scale');
+    }
+
+    .characters {
+        vertical-align: bottom;
+    }
+
+    .submit, .inputs { padding: 1.25rem; }
+
+    .submit {
+        border-top: 1px solid #ccc;
+        text-align: right;
+    }
+
+    .input-box {
+        width: 66.666%;
+        margin: 12.7% auto 0;
+        background: #efefef;
+        margin-top: 0;
+        position: relative;
+        z-index: 5;
+    }
+
+    .bg-imagery { margin-top: -17.23%; height: 0; width: 100%; padding-bottom: 34.815%; position: relative;}
+    .character-wrapper { position: relative; }
+
+    .bg-imagery svg,
+    .character-wrapper svg,
+    .main-scene__rocketman svg,
+    .main-scene__rocketman,
+    .main-scene__drone svg,
+    .main-scene__forklift,
+    .main-scene__forklift svg {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        vertical-align: bottom;
+    }
+
+    .calculator .scene-svg {
+        width: 100%;
+        height: auto;
+        vertical-align: bottom;
+    }
+
+    /* Animations */
+
+    /* Prefixed */
+
+    @-webkit-keyframes drone-hover {
+        0% {
+            -webkit-transform: translate3d(0,0,0); 
+            transform: translate3d(0,0,0); 
+        }
+        50% {
+            -webkit-transform: translate3d(0,20%,0); 
+            transform: translate3d(0,20%,0); 
+        }
+        100% {
+            -webkit-transform: translate3d(0,0,0); 
+            transform: translate3d(0,0,0); 
+        }
+    }
+
+    @-webkit-keyframes drone-hover-less {
+        0% {
+            -webkit-transform: translate3d(0,20px,0); 
+            transform: translate3d(0,20px,0); 
+        }
+        50% {
+            -webkit-transform: translate3d(0,0px,0); 
+            transform: translate3d(0,0px,0); 
+        }
+        100% {
+            -webkit-transform: translate3d(0,20px,0); 
+            transform: translate3d(0,20px,0); 
+        }
+    }
+
+    @-webkit-keyframes drone-pan {
+        0% {
+            -webkit-transform: translate3d(0,0,0); 
+            transform: translate3d(0,0,0); 
+        }
+        50% {
+            -webkit-transform: translate3d(-10px,0,0); 
+            transform: translate3d(-10px,0,0); 
+        }
+        100% {
+            -webkit-transform: translate3d(0,0,0); 
+            transform: translate3d(0,0,0); 
+        }
+    }
+
+    @-webkit-keyframes wheel {
+        0% {
+            -webkit-transform: rotate(0deg); 
+            transform: rotate(0deg); 
+        }
+        25% {
+            -webkit-transform: rotate(1080deg); 
+            transform: rotate(1080deg); 
+        }
+        50% {
+            -webkit-transform: rotate(2160deg); 
+            transform: rotate(2160deg); 
+        }
+
+        100% {
+            -webkit-transform: rotate(2160deg); 
+            transform: rotate(2160deg); 
+        }
+    }
+
+    @-webkit-keyframes forklift {
+        0% {
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; 
+        }
+        24.99% {
+            -webkit-transform: translate3d(600px,0,0); 
+            transform: translate3d(600px,0,0); 
+        }
+        25% {
+            -webkit-transform: translate3d(600px,0,0);
+            transform: translate3d(600px,0,0);
+            visibility: hidden; 
+        }
+        25.001% {
+            -webkit-transform: translate3d(-600px,0,0); 
+            transform: translate3d(-600px,0,0); 
+        }
+        25.002% {
+            -webkit-transform: translate3d(-600px,0,0);
+            transform: translate3d(-600px,0,0);
+            visibility: visible;
+            -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; 
+        }
+        50% {
+            -webkit-transform: translate3d(0,0,0); 
+            transform: translate3d(0,0,0); 
+        }
+
+        100% {
+            -webkit-transform: translate3d(0,0,0); 
+            transform: translate3d(0,0,0); 
+        }
+    }
+
+    @-webkit-keyframes flicker {
+        0% {
+            -webkit-transform: skew(-5deg) scale(.9); 
+            transform: skew(-5deg) scale(.9); 
+        }
+        50% {
+            -webkit-transform: skew(5deg) scale(1); 
+            transform: skew(5deg) scale(1); 
+        }
+    }
+
+    /* Unprefixed */
+
+    @keyframes drone-hover {
+        0% { transform: translate3d(0,0,0); }
+        50% { transform: translate3d(0,20%,0); }
+        100% { transform: translate3d(0,0,0); }
+    }
+
+    @keyframes drone-hover-less {
+        0% { transform: translate3d(0,20px,0); }
+        50% { transform: translate3d(0,0px,0); }
+        100% { transform: translate3d(0,20px,0); }
+    }
+
+    @keyframes drone-pan {
+        0% { transform: translate3d(0,0,0); }
+        50% { transform: translate3d(-10px,0,0); }
+        100% { transform: translate3d(0,0,0); }
+    }
+
+    @keyframes wheel {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(1080deg); }
+        50% { transform: rotate(2160deg); }
+        100% { transform: rotate(2160deg); }
+    }
+
+    @keyframes forklift {
+        0% { transform: translate3d(0,0,0); -webkit-animation-timing-function: ease-in; animation-timing-function: ease-in; }
+        24.9% { transform: translate3d(600px,0,0); }
+        25% { transform: translate3d(600px,0,0); visibility: hidden; }
+        25.001% { transform: translate3d(-600px,0,0); }
+        25.002% { transform: translate3d(-600px,0,0); visibility: visible; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
+        50% { transform: translate3d(0,0,0); }
+        100% { transform: translate3d(0,0,0); }
+    }
+
+    @keyframes flicker {
+        0% { transform: skew(-5deg) scale(.9); }
+        50% { transform: skew(5deg) scale(1); }
+    }
+
+    .main-scene__drone {
+        -webkit-animation: drone-hover 2s infinite ease-in-out; animation: drone-hover 2s infinite ease-in-out;
+        will-change: transform;
+    }
+
+    .main-scene__drone-wrapper,
+    .main-scene__rocketman-wrapper,
+    .main-scene__forklift {
+        position: absolute;
+        will-change: transform;
+    }
+
+    .main-scene__drone-wrapper {
+        bottom: 23%;
+        left: 5%;
+        width: 8%;
+    }
+
+    .main-scene__drone {
+        height: 0;
+        padding-bottom: 58.57%;
+    }
+
+    .main-scene__forklift-wrapper {
+        padding-bottom: 14.13%;
+        position: absolute;
+        width: 18%;
+        bottom: 0;
+        height: 0;
+        left: 41%;
+    }
+
+    .main-scene__rocketman-wrapper {
+        width: 15%;
+        right: 0%;
+        height: 0;
+        bottom: 30%;
+        padding-bottom: 18.07%;
+    }
+
+    .rocketman__flame {
+        position: absolute;
+        width: 4.645%;
+        left: 71.4%;
+        top: 46.7%;
+        z-index: -3;
+        height: 0;
+        padding-bottom: 6.64%;
+    }
+
+    .forklift__wheel-2 {
+        bottom: 0;
+        left: 6%;
+        height: 0;
+        padding-bottom: 18%;
+        position: absolute;
+        width: 18%;
+        z-index: 10;
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-animation: wheel 40s ease-in-out 5s infinite; animation: wheel 40s ease-in-out 5s infinite;
+    }
+
+    .forklift__wheel-1 {
+        bottom: 0;
+        left: 50%;
+        height: 0;
+        padding-bottom: 21%;
+        position: absolute;
+        width: 21%;
+        z-index: 10;
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-animation: wheel 40s ease-in-out 5s infinite; animation: wheel 40s ease-in-out 5s infinite;
+    }
+
+    .main-scene__forklift {
+        -webkit-animation: forklift 40s 5s infinite; animation: forklift 40s 5s infinite;
+    }
+
+    .main-scene__rocketman {
+        -webkit-animation: drone-hover-less 8s infinite ease-in-out; animation: drone-hover-less 8s infinite ease-in-out;
+    }
+
+    .main-scene__rocketman-wrapper {
+        -webkit-animation: drone-pan 16s infinite ease-in-out; animation: drone-pan 16s infinite ease-in-out;   
+    }
+
+    .rocketman__flame {
+        -webkit-animation: flicker.18s infinite linear; animation: flicker.18s infinite linear;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+
+    @media (min-width: 600px) {
+        .bg-imagery { margin-top: -17.23%; }
+        .bg-imagery svg > *, .characters > * { transform: translate3d(0,0,0); }
+        .character-wrapper { padding-bottom: 21.203%; }
+        .scene--simplified { display: none; }
+    }
+
+    @media (min-width: 850px) {
+        .character-wrapper {
+            width: 55%;
+            padding-bottom: 17.45%;
+        }
+    }
+
+    @media (max-width: 599px) {
+        [id='forklift__wheel-1'] {
+            -webkit-transform-origin: 298px 485px;
+            transform-origin: 298px 485px;
+        }
+
+        [id='forklift__wheel-2'] {
+            -webkit-transform-origin: 223px 488px;
+            transform-origin: 223px 488px;
+        }
+
+        .main-scene__drone-wrapper,
+        .main-scene__rocketman-wrapper {
+            display: none;
+        }
+
+        .main-scene__forklift-wrapper {
+            bottom: 0;
+            left: 36%;
+            padding-bottom: 19.83%;
+            width: 25%;
+        }
+
+        /*[id='right_structural_girder_2'],
+        [id='lower_right_girder'],
+        [id='top_left_girder'],
+        [id='left_hand_crates'],
+        .main-scene__drone-wrapper,
+        [id="rocketman-outer"],
+        [id="character__other-robot"],
+        [id="character__books"] {
+            display: none;
+        }
+
+        [id="character__mean-robot"],
+        [id="character__friendly-robot"],
+        [id="character__fire"],
+        [id="character__doctor"],
+        [id="character__suit"] {
+            -ms-transform: scale(1.4) translate(0,-30px);
+            -webkit-transform: scale(1.4) translate(0,-30px);
+            -webkit-transform: scale(1.4) translate3d(0,-30px,0);
+            transform: scale(1.4) translate3d(0,-30px,0);
+        }
+
+        [id="character__mean-robot"] {
+            -ms-transform: scale(1.3) translate(-40px,0);
+            -webkit-transform: scale(1.3) translate(-40px,0);
+            -webkit-transform: scale(1.3) translate3d(-40px,0,0);
+            transform: scale(1.3) translate3d(-40px,0,0);   
+        }
+
+        [id='lower_left_girder'],
+        [id='female_silhouette'],
+        [id='friendly_robot'],
+        [id='left_inner_crate'] {
+            -ms-transform: translate(-267px, -200px) scale(1.6);
+            transform: translate3d(-267px, -200px, 0) scale(1.6);
+        }
+
+        [id='right_structural_girder_1'] {
+            -ms-transform: translate(-267px, -200px) scale(1.6);
+            transform: translate3d(-267px, -200px, 0) scale(1.6);
+        }
+
+        [id='big_scary_robot'] {
+            -ms-transform: translate(-507px, -200px) scale(1.6);
+            transform: translate3d(-507px, -200px, 0) scale(1.6);
+        }
+
+        [id='k-9'] {
+            -ms-transform: translate(-507px, -145px) scale(1.6);
+            transform: translate3d(-507px, -145px, 0) scale(1.6);
+        }
+
+        [id='right_hand_crates'],
+        [id='right_hand_crates_back'] {
+            -ms-transform: translate(-308px, -200px) scale(1.6);
+            transform: translate3d(-308px, -200px, 0) scale(1.6);
+        }
+
+        [id='forklift_outer']{
+            -ms-transform: translate(-248px, -134px) scale(1.4);
+            transform: translate3d(-248px, -134px, 0) scale(1.4);
+        }*/
+
+        .scene--full {
+            display: none;
+        }
+
+        .input-box {
+            width: auto;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+
+        .bg-imagery { margin-top: -3%; }
+
+        .character-wrapper {
+            width: auto;
+            margin: 0 16px -3.25% 16px;
+            padding-bottom: 39%;
+        }
+    }
+</style>

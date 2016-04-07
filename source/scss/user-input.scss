@@ -1,0 +1,84 @@
+.input-box{
+    padding: 1.56em 1.56em 0.16em;
+    background: #e7e7e7 !important;
+}
+
+.user-input{
+    overflow: hidden;
+    max-width: 650px;
+    margin: auto;
+    background: #e7e7e7;
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #b6b6b6;
+        margin: 0.625em -1.56em;
+        padding: 0; 
+    }
+}
+
+.user-input--title{
+    color: #000;
+    font: bold 1.75em $font--display;
+    margin: 0;
+}
+
+@include respondMinMax(false, 480px){
+    font-size: 1.5em;
+}
+
+.user-input--text-input{
+    display: block;
+    margin: 0 0 0.625em 0;
+    color: #333;
+    padding: 13px;
+    width: 100%;
+    outline: 0;
+    margin-bottom: 0.625em;
+    border: 1px solid $base--border-color;
+
+    &:focus{
+        border: 2px solid #009898;
+    }
+}
+.user-input--dropdown{
+    display: none;
+}
+.user-input--dropdown-input{
+    display: block;
+    color: #333;
+    padding: 13px;
+    width: 100%;
+    height: 48px;
+    background-color: #FFF;
+    background-image: url('../img/frame/chevron.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    padding-right: 2em;
+}
+.user-input--inputs{
+    margin: 0.625em 0 0 0;
+}
+
+.user-input--help{
+    margin: 0 0 0.625em 0;
+    a{
+        color: #006B6B;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover, &:focus{
+            text-decoration: underline;
+        }
+        display: inline-block;
+    }
+}
+
+.user-input--submit{
+    @extend %button--cta;
+    margin-right: 0;
+    float: right;
+}

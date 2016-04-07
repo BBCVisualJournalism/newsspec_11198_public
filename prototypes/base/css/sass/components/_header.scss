@@ -1,0 +1,272 @@
+.orb {
+    @extend %page-padding;
+    background: $color--brand-white;
+    min-height: 31px;
+    // @include break($break--g3) { height: 40px; }
+}
+
+.orb-content {
+    // background-image: url('../img/bbc-blocks-dark.png');
+    max-width: 976px; //1008 - padding
+    margin: 0 auto;
+    // background-position: .5em center;
+    // background-repeat: no-repeat;
+    height: 100%;
+
+    img {
+        margin: .3em 0;
+        position: relative;
+        top: .0625rem;
+
+        @include break($break--g3) {
+            margin: .5em 0;
+            // top: .125rem;
+        }
+
+        @include break($break--g4) {
+            // padding: 0 1rem;
+        }
+    }
+}
+
+.nav {
+    @extend %page-padding;
+    background: $color--brand-red;
+    min-height: 56px;
+    position: relative;
+    @include break($break--g2) { min-height: 56px; }
+}
+
+.nav-content {
+    background-image: url('../img/frame/news.png');
+    background-position: 0 center;
+    background-repeat: no-repeat;
+    background-size: 7.5em;
+    max-width: 976px; //1008 - padding
+    position: relative;
+    height: 56px;
+    top: 50%;
+}
+
+.menu-button {
+    background: url('../img/frame/menu.svg') .7rem center no-repeat;
+    border: 1px solid #fff;
+    border-color: rgba(255,255,255,0.3);
+    bottom: 8px;
+    color: #fff;
+    display: inline-block;
+    float: right;
+    font-size: .875rem;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    line-height: 1.4em;
+    padding: 9px 12px 9px 2.2rem;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 8px;
+
+    @include break(600) {
+        display: none;
+    }
+}
+
+.nav-items {
+    background-color: $color--brand-red--dark;
+    // border-top: 1px solid $color--brand-red--light;
+    color: #fff;
+    display: none;
+    @extend %page-padding;
+
+    .nav-content {
+        background-image: none;
+        height: auto;
+    }
+
+    @include break(600) {
+        display: block;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+
+            li {
+                display: inline-block;
+                position: relative;
+
+                a {
+                    padding: .5rem .5rem;
+                    color: #fff;
+                    text-decoration: none;
+                    display: block;
+                    font-size: .875rem;
+
+                    &.on {
+                        border-bottom: 4px solid #fff;
+                        padding-bottom: 4px;
+                    }
+                }
+
+                &:first-child a {
+                    padding-left: 0;
+                }
+
+                &:last-child a {
+                    padding-right: 0;
+                }
+
+                & + li {
+                    &:before {
+                        height: 1.2rem;
+                        width: 1px;
+                        background-color: $color--brand-red--light;
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        top: .5rem;
+                        left: -3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.debug .nav::after {
+    background: rgba(255, 255, 255, .8);
+    color: $color--brand-red;
+    content: "Group 1 devices";
+    display: block;
+    height: 2em;
+    margin-top: -1em;
+    padding: .5em 1em .5em .5em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: auto;
+
+    @include break($break--g2) { content: "Group 2 devices"; }
+    @include break($break--g3) { content: "Group 3 devices"; }
+    @include break($break--g4) { content: "Group 4 devices"; }
+}
+
+.page-share-tools {
+    @extend %page-padding;
+    color: $color--brand-green;
+    height: 2rem;
+    margin-bottom: -1rem;
+    position: relative;
+
+    p {
+        position: absolute;
+        right: .5rem;
+        top: 0;
+        margin: .75rem 0;
+
+        @include break(600) {
+            top: -.5rem;
+        }
+
+        @include break($break--g4) {
+            margin: .4rem 0;
+            text-align: right;
+            width: 1008px;
+            left: 50%;
+            margin-left: -504px;
+
+            span {
+                display: inline-block;
+                margin-right: 1rem;
+            }
+        }
+
+        span {
+            background: url('../img/frame/icon--share-green.svg') left center no-repeat;
+            padding: .5rem .5rem .5rem 2rem;
+        }
+    }
+}
+
+.sub-nav {
+    @extend %page-padding;
+
+    a {
+        color: $color--brand-black;
+        text-decoration: none;
+        display: block;
+    }
+
+    .site-section {
+        font-size: 1.25em;
+        margin: 0;
+        padding: .5em 0; 
+    }
+
+    @include break($break--g2) {
+        padding: 0;
+    }
+
+    @include break($break--g4) {
+        .wrapper {
+            padding: 0 8px;
+        }   
+    }
+}
+
+.sub-nav__list {
+    border-bottom: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: none;
+    }
+
+    li:first-child{
+        display: block;
+        font-size: 1.25em;
+        margin: 0;
+        padding: .5em 0;
+        background: url('../img/frame/chevron.svg') right center no-repeat;
+    }
+
+    @include break(600) {
+        border-bottom: 0;
+
+        li {
+            display: inline-block;
+            margin: 0 .5rem 0;
+            position: relative;
+        }
+
+        li:nth-child(n + 2) {
+            &:after {
+                display: block;
+                width: 1px;
+                height: 1rem;
+                position: absolute;
+                content: "";
+                top: .125rem;
+                left: -.6rem;
+                background: #ccc;
+            }
+        }
+
+        li:first-child {
+            background: transparent;
+            display: inline-block;
+            font-size: 1.25em;
+            margin: 0;
+            padding: .5em 1rem .375rem;
+            border-bottom: 4px solid $color--brand-red;
+        }
+    }
+
+    @include break($break--g4) {
+        li:first-child {
+            padding: .5rem .5rem .375rem;
+        }
+    }
+}

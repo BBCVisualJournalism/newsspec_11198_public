@@ -1,0 +1,36 @@
+<div class="animated-table">
+    <h2 class="animated-table--heading">Explore the full list of jobs</h2>
+    <div class="aniamted-table--container">
+        <div class="animated-table--search">
+            <label for="animated-table--search-input">Find a job:</label>
+            <input id="animated-table--search-input" type="text" placeholder="Enter a job title" class="animated-table--search-input">
+            <button class="animated-table--search-submit" disabled="disabled">Find</button>
+        </div>
+        <div class="animated-table--table-header">
+            <div class="th--col th--col--1">Rank*</div>
+            <div class="th--col th--col--2">Job title</div>
+            <div class="th--col th--col--3"><span class="automation--text">Automation </span>Risk</div>
+        </div>
+        <div class="table-gradient--wrapper">
+            <div class="animated-table--table-wrapper">
+                <table class="animated-table--table">
+                </table>
+            </div>
+            <div class="table-gradient"></div>
+        </div>
+    </div>
+    <div class="table--buttons">
+        <label>Jump to:</label>
+        <button id="button-most">Most at risk</button>
+        <button id="button-mine">My job</button>
+        <button id="button-least">Least at risk</button>        
+    </div>
+</div>
+
+<script id="animated-table-row" type="text/html">
+    <tr>
+        <td class="td--1"><^= rank ^></td>
+        <td class="td--2"><^= job ^></td>
+        <td class="td--3"><^= percentage ^>%</td>
+    </tr>
+</script>

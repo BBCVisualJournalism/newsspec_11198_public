@@ -1,0 +1,159 @@
+@mixin text-rendering() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin button--inactive {
+    background-color: $color--brand-grey__mid;
+    border-color: $color--brand-grey__mid;
+    border: 2px solid $color--brand-grey__mid;
+    color: $color--brand-black;
+    cursor: default;
+    pointer-events: none;
+}
+
+@mixin button--standard {
+    @include text-rendering;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 .8889em 0;
+    padding: .55em .8em .5em;
+    text-decoration: none;
+    -webkit-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    -moz-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    -ms-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    -o-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    width: auto;
+    
+    &.disabled{
+        @include button--inactive;
+
+        &:hover, &:active, &:focus{
+            @include button--inactive;
+        }
+    }
+}
+
+%button--naked {
+    @include button--standard;
+    background-color: $color--brand-teal;
+    border: 2px solid $color--brand-teal;
+    color: $color--brand-white;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-teal__dark1;
+        border: 2px solid $color--brand-teal__dark1;
+    }
+}
+
+%button--secondary {
+    @include button--standard;
+    background-color: transparent;
+    border: 2px solid $color--brand-teal;
+    color: $color--brand-teal;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-teal;
+        border: 2px solid $color--brand-teal;
+        color: $color--brand-white;
+    }
+}
+
+%button--secondary--white {
+    @include button--standard;
+    background-color: transparent;
+    border: 2px solid $color--brand-white;
+    color: $color--brand-white;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-teal;
+        border: 2px solid $color--brand-teal;
+        color: $color--brand-white;
+    }
+}
+
+%button--link {
+    @include button--standard;
+    background-color: $color--brand-green;
+    background-image: url(../img/frame/icon--link.png);
+    background-image: url(../img/frame/icon--link.svg), none;
+    background-position: left .05em;
+    background-size: 2.3em;
+    background-repeat: no-repeat;
+    border: 2px solid $color--brand-green;
+    padding-left: 2em;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-green__light;
+        border: 2px solid $color--brand-green__light;
+    }
+}
+
+%button--share {
+    @extend %button--link;
+    background-image: url(../img/frame/icon--share-white.png);
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzIgMzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xMC42NDUsMTkuNzQ4YzAuOTYzLDAsMS44My0wLjQxNiwyLjQzNS0xLjA2OGw1LjQ2OSwyLjkzOGMtMC4wNTksMC4yNTEtMC4wOTcsMC41MTctMC4wOTcsMC43ODhjMCwxLjgzNiwxLjQ5MiwzLjMyMSwzLjMyNiwzLjMyMWMxLjgzLDAsMy4zMjMtMS40ODUsMy4zMjMtMy4zMjFzLTEuNDkzLTMuMzItMy4zMjMtMy4zMmMtMC45NjUsMC0xLjgzNCwwLjQxLTIuNDQxLDEuMDY2bC01Ljc0My0zLjE0MmwtMC4wNDUtMS42OTdMMTkuNDY0LDEyYzAuNjAyLDAuNTc3LDEuNDEyLDAuOTM2LDIuMzEzLDAuOTM2YzEuODMsMCwzLjMyMy0xLjQ5MSwzLjMyMy0zLjMyNmMwLTEuODM1LTEuNDkzLTMuMzIyLTMuMzIzLTMuMzIyYy0xLjgzNCwwLTMuMzI2LDEuNDg2LTMuMzI2LDMuMzIyYzAsMC4zMzgsMC4wNDksMC42NjIsMC4xNDYsMC45NzFsLTUuNjQ2LDMuNDUzYy0wLjYtMC41NzYtMS40MTItMC45MzQtMi4zMDctMC45MzRjLTEuODM4LDAtMy4zMjMsMS40ODYtMy4zMjMsMy4zMjFDNy4zMjEsMTguMjY0LDguODA3LDE5Ljc0OCwxMC42NDUsMTkuNzQ4eiIvPjwvZz48L3N2Zz4=), none;
+    background-size: 1.8em;
+    background-position: .3em center;
+    padding-left: 2.3em;
+}
+
+%button--cta,
+%button--cta-reverse,
+%button--reset {
+    @extend %button--naked;
+    background-repeat: no-repeat;
+}
+
+%button--cta {
+    background-image: url(../img/frame/chevron--white-right.png);
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMzIgMzIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjIzLjI4MSwxNiAxMi43MTksOS41IDEyLjcxOSwxMi40MSAxOC45NDMsMTYgMTIuNzE5LDE5LjU5MiAxMi43MTksMjIuNSAiLz48L3N2Zz4=), none;
+    background-position: right center;
+    padding-right: 1.75em;
+
+    &.disabled{
+        @include button--inactive;  
+        background-image: url(../img/frame/chevron--grey-right.png);
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDE1IDMyIDMyIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiICBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMTUgMzIgMzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIGZpbGw9IiMyMjIiIHBvaW50cz0iMjMuOSwzMC45IDEyLDIzLjYgMTIsMjYuOCAxOSwzMC45IDEyLDM0LjkgMTIsMzguMiAiLz48L3N2Zz4=), none;
+        padding-right: 1.75em;
+    }
+}
+
+%button--cta-reverse {
+    background-image: url(../img/frame/chevron--white-left.png);
+    background-image: url(../img/frame/chevron--white-left.svg), none;
+    background-position: left center;
+    padding-left: 1.75em;
+}
+
+%button--reset {
+    background-image: url(../img/frame/icon--reset.png);
+    background-image: url(../img/frame/icon--reset.svg), none;
+    background-position: -.25em center;
+    padding-left: 2em;
+}
+
+%button--cta-feature {
+    @extend %button--cta;
+    font-family: $font--display;
+    font-weight: 500;
+    line-height: 1;
+}
+
+%button--pagination-next {
+    @extend %button--cta;
+}
+
+%button--pagination-prev {
+    @extend %button--cta-reverse;
+}
+

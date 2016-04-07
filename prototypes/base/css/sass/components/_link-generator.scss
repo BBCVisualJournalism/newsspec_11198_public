@@ -1,0 +1,30 @@
+.link-generator {
+    position: relative;
+    > * {
+    }
+
+    .button--link { z-index: 4; margin-right: 0;}
+    .button--loading { z-index: 3; }
+    .loaded { z-index: 2; }
+    button { margin-right: 0; }
+
+    .share-link {
+        border: 0;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        transition: all .5s ease;
+        overflow: hidden;
+        width: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+
+        &.expanded {
+            opacity: 1;
+        }
+    }
+}

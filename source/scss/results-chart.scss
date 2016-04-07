@@ -1,0 +1,211 @@
+
+.results-chart--wrapper{
+    max-width: 340px;
+    margin: 3em 0;
+    padding: 0 10px;
+    h4{
+        margin: 0 auto 10px auto;
+        text-align: center;
+        @include respondMinMax(500px, false){
+            margin: 0 0 6px -10px;
+            text-align: left;
+        }
+    }
+    p strong{
+        font-size: 2.6em;
+    }
+    @include respondMinMax(410px, false){
+        margin: 3em auto;
+    }
+    @include respondMinMax(500px, false){
+        margin: 7em 0 3em 0;
+    }
+    @include respondMinMax(false, 678px){
+        padding: 0 10px 0 25px;
+    }
+}
+.results-chart--share-button{
+    @extend %button--share;
+    color: #fff;
+    display: block;
+    margin: 2em auto 1em auto;
+    @include respondMinMax(500px, false){
+        margin: 2em 0 1em -10px;
+    }
+}
+.results-chart{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 80%;
+
+    @include respondMinMax(410px, false){
+        margin-left: -30px;
+    }
+    @include respondMinMax(500px, false){
+        margin-left: -25px;
+    }
+
+    @include respondMinMax(768px, false){
+        margin-left: -65px;
+    }
+
+    .results-chart--bg__h--wrapper{
+        position: absolute;
+        z-index: 2;
+        top: 52px;
+        left: 45px;
+        right: 0;
+        bottom: 50px;
+
+        .results-chart--bg__h{
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            .h-bar{
+                position: absolute;
+                left: 0;
+                width: 100%;
+                border-top: 1px solid #ccc;
+            }
+
+            .h-bar__1{
+                top: 0;
+                bottom: 75%;
+            }
+            .h-bar__2{
+                top: 25%;
+                bottom: 50%;
+            }
+            .h-bar__3{
+                top: 50%;
+                bottom: 25%;
+            }
+            .h-bar__4{
+                top: 75%;
+                bottom: 0;
+                border-bottom: 2px solid #767676;
+            }
+        }
+    }
+
+    .results-chart--bg__v{
+        z-index: 1;
+        position: absolute;
+        top: 52px;
+        left: 55px;
+        right: 0;
+        bottom: 40px;
+
+        .y-axis{
+            height: 100%;
+            border-left: 1px solid #ccc;
+        }
+        .v-line{
+            position: absolute;
+            height: 10px;
+            right: 0;
+            bottom: 0;
+            width: 1px;
+            border-right: 1px solid #CCC;
+        }
+    }
+    .results-chart--chart{
+        position: absolute;
+        z-index: 3;
+        top: 53px;
+        left: 56px;
+        right: 0;
+        bottom: 52px;
+        overflow: hidden;
+
+        img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            image-rendering:-moz-crisp-edges;          /* Firefox        */
+            image-rendering:-o-crisp-edges;            /* Opera          */
+            image-rendering:-webkit-optimize-contrast; /* Safari         */
+            -ms-interpolation-mode:nearest-neighbor;   /* IE8+*/ 
+        }
+    }
+    .results-chart--labels{
+        position: absolute;
+        top: 45px;
+        left: 0;
+        right: 0;
+        bottom: 40px;
+        z-index: 4;
+        .results-chart--label__y-axis{
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 41px;
+            text-align: right;
+        }
+        .results-chart--label--100{
+            top: 0;
+        }
+        .results-chart--label--75{
+            top: 21.1%;
+        }
+        .results-chart--label--50{
+            top: 45%;
+        }
+        .results-chart--label--25{
+            top: 67%;
+        }
+        .results-chart--label--0{
+            top: 90%;
+        }
+        .results-chart--label--least, .results-chart--label--most{
+            position: absolute;
+            bottom: -40px;
+            width: 50px;
+            display: block;
+        }
+        .results-chart--label--least{
+            right: 0;
+            text-align: right;
+        }
+        .results-chart--label--most{
+            left: 55px;
+        }
+    }
+
+    .results-chart--marker--wrapper{
+        position: absolute;
+        left: 56px;
+        right: 1px;
+        top: 0;
+        bottom: 51px;
+        z-index: 6;
+
+
+        .results-chart--marker{
+            position: absolute;
+            top: 35px;
+            bottom: 0;
+            width: 1px;
+            border-left: 1px solid #000;
+        }
+        .results-chart--label{
+            position: absolute;
+            font-family: $font--display;
+            font-size: 1.2em;
+            @include respondMinMax(false, 410px){
+                font-size: 1em;
+            }
+            width: 200px;
+            text-align: center;
+            margin-left: -100px;
+            top: 0;
+            
+            strong{
+                font-size: 1.4em;
+                color: $color--brand-teal;
+            }
+        }
+    }
+}

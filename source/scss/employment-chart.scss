@@ -1,0 +1,126 @@
+.employment-chart--wrapper{
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-bottom: 93%;
+    margin-left: 0;
+    margin-bottom: 2em;
+
+    .employment-chart--svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    @include respondMinMax(679px, false){
+        float: left;
+        width: 50%;
+        padding-bottom: 46%;
+    }
+
+    @include respondMinMax(768px, false){
+        .employment-chart--svg{
+            margin-left: -60px;
+        }
+    }
+}
+.employment-chart{
+    max-width: 400px;
+    margin: auto;
+
+    @include respondMinMax(679px, false){
+        max-width: none;
+    }
+
+    @include respondMinMax(500px, false){
+        h2 {
+            margin-top:5em;
+        }
+    }
+
+    h2 {
+        font-weight:normal;
+    }
+
+    path { 
+        stroke: #007F7F;
+        stroke-width: 3;
+        fill: none;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #ccc;
+        stroke-width: 1;
+        shape-rendering: crispEdges;
+    }
+
+    .circle-point{
+        fill: #007F7F;
+    }
+
+    .axis__y{
+        .tick:first-child line{
+            display: none;
+        }
+    }
+
+    .axis__y-grid{
+        .domain{
+            display: none;
+        }
+        .tick:first-child line{
+            stroke: #222;
+            stroke-width: 2;
+        }
+    }
+}
+
+
+.employment-figures{
+    clear: both;
+    @include respondMinMax(480px, 678px){
+        text-align: center;
+    }
+    @include respondMinMax(679px, 768px){
+        margin-left: 60px;
+    }
+    .figure{
+        text-align: left;
+        display: block;
+
+        @include respondMinMax(480px, false){
+            display: inline-block;
+            max-width: 230px;
+            
+            &.figure__avg{
+                max-width: 190px;
+            }
+        }
+        strong{
+            color: #007F7F;
+            font-size: 1.75em;
+            @include respondMinMax(480px, 678px){
+                font-size: 1.25em;
+            }
+        }
+         
+        p{
+            margin: .5em 0;
+        }
+
+        &.figure__avg{
+            vertical-align: top;
+            margin-top: 0.53em;
+            margin-left: 1.5em;
+        }
+        &.figure__user strong{
+            font-size: 2.25em;
+            @include respondMinMax(480px, 678px){
+                font-size: 1.5em;
+            }
+        }
+    }
+
+}

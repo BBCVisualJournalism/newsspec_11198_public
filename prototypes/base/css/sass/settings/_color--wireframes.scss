@@ -1,0 +1,27 @@
+// #COLOR
+
+$color--black: #000;
+$color--brand-red: #666;
+$color--brand-red--light: #999;
+$color--brand-red--dark: #444;
+$color--brand-teal: #333;
+$color--brand-teal__dark1: #000;
+$color--brand-green: #333;
+$color--brand-green__light: #666;
+$color--brand-blue: #333;
+$color--brand-black: #333;
+$color--brand-black__headings: #000;
+$color--brand-white: #fff;
+$color--brand-grey__dark: #5a5a5a;
+$color--brand-grey__mid: #dcdcdc;
+$color--brand-grey__light: #f2f2f2;
+
+$color--error: #c00;
+$color--error-light: #f7d9d9;
+
+$base--text-color: $color--brand-black;
+$base--link-color: $color--black;
+$base--brand-color: $color--brand-red;
+$base--border-color: $color--brand-grey__mid;
+$base--background-color: $color--brand-white;
+$base--background-color__dark: $color--brand-grey__dark;

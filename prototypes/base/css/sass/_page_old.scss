@@ -1,0 +1,284 @@
+.story {
+    @extend %column;
+    padding: 0;
+    
+    @include break($break--g4) {
+        @include columns(8);
+        float: left;
+    }
+}
+
+.sidebar {
+    @extend %column;
+
+    @include break($break--g4) {
+        @include columns(4);
+        float: left;
+    }
+}
+
+.story-meta {
+    border-bottom: 1px solid #dcdcdc;
+    font-size: .875em;
+    line-height: 1.14286;
+    overflow: auto;
+    padding-bottom: 16px;
+    width: 100%;
+
+    .date {
+        color: #767676;
+        padding-left: 28px;
+        margin-left: -10px;
+        background-image: url("../img/news--icons-sprite.png");
+        background-repeat: no-repeat;
+        background-position: left -4011px;
+    }
+
+    a {
+        color: $color--brand-red;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: underline;
+        }
+    }
+}
+
+.story-meta__list {
+    float: left;
+    margin: 0 16px 0 0;
+    padding: 0;
+
+    > li {
+        border-right: 1px solid #dcdcdc;
+        display: inline-block;
+        margin-right: .2em;
+        padding-right: .5em;
+        margin-bottom: 2px;
+        margin-top: 2px;
+        white-space: nowrap;
+
+        &:last-child {
+            border-right: none;
+            margin-right: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.story-title,
+.story-body,
+.sidebar-item {
+    > *:first-child {
+        margin-top: 0;
+    }
+
+    > figure:first-child + * {
+        margin-top: 0;
+    }
+}
+
+.story-title {
+    padding-top: 1em;
+    
+    @include break(600) {
+        padding-top: 1.75em;
+    }
+}
+
+.sidebar {
+    padding-top: 1.375em;
+}
+
+.story-intro {
+    padding-top: 1em;
+    
+    @include break(600) {
+        padding-top: 1.75em;
+    }
+}
+
+.story-body {
+    padding-top: 1.75em;
+
+    &.mym {
+        padding-top: 0;
+        padding-bottom: 3.75em;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 1rem;
+    }
+
+    @include break($break--g2) {
+        margin-left: 8.333%;
+        margin-right: 8.333%;
+    }
+
+    @include break($break--g4) {
+        margin-left: 0;
+        padding-right: 8.333%;
+        margin-right: 0;
+    }
+
+    > p {
+        line-height: 1.375;
+        margin-top: 1em;
+
+        @include break($break--g2) {
+            font-size: 1.125em;
+        }
+
+        @include break($break--g4) {
+            font-size: 1em;
+        }
+    }
+
+    .my-manifesto & {
+        padding-top: 0;
+    }
+}
+
+.story-body--wide {
+    padding-top: 1.75em;
+
+    .issue & {
+        padding-top: .5rem;
+
+        @include break($break--g2) {
+            padding-top: 1rem;
+        }
+    }
+}
+
+.story-body__intro {
+    font-weight: bold;
+
+    & + p {
+        margin-top: 1.4375em;
+    }
+}
+
+.story-body__crosshead,
+.sidebar__crosshead {
+    font-size: 1.25em;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: .9em;
+}
+
+.sidebar-item {
+    background: #ededed;
+    padding: 1em;
+
+    & + .sidebar-item {
+        margin-top: 1.5em;
+    }
+}
+
+
+//Embedded content items
+.fw-embed,
+.hw-embed {
+    background: #ededed;
+    margin-bottom: 1.5em;
+    min-height: 5em;
+    overflow: hidden;
+    position: relative;
+
+    &.wb {
+        background: transparent;
+    }
+
+    > img {
+        height: auto;
+        max-width: 100%;
+        vertical-align: bottom;
+    }
+
+    .card {
+        margin: .5em;
+        width: auto;
+
+        @include break(480) {
+            margin: 1em;
+        }
+    }
+
+    .small { display: block; }
+    .large { display: none; }
+
+    @include break($break--g3) {
+        .large { display: block; }
+        .small { display: none; }
+    }
+}
+
+//Half-width
+.hw-embed {
+    display: block;
+    margin: 1.5em -.5em;
+    width: auto;
+
+    @include break(480) {
+        clear: both;
+        float: right;
+        margin: 0 0 1.5em 1.5em;
+        width: 49.999%;
+    }
+    
+    @include break($break--g2) {
+        margin-right: -4.167%;
+    }
+}
+
+//Full-width
+.fw-embed {
+    margin: 1.5em 0;
+
+    &.widest {
+        @include break($break--g2) {
+            width: 105%;
+        }
+    }
+}
+
+.play {
+    background: rgba(204, 0, 0, .8);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 4em;
+    height: 4em;
+
+    &:after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-left: 1.36em solid #fff;
+        border-right: 0 solid transparent;
+        border-top: .85em solid transparent;
+        border-bottom: .85em solid transparent;
+        content: "";
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    
+    @include break($break--g2) {
+        height: 5em;
+        width: 5em;
+
+        &:after {
+            border-left: 1.6em solid #fff;
+            border-right: 0 solid transparent;
+            border-top: 1em solid transparent;
+            border-bottom: 1em solid transparent;
+        }
+    }
+}

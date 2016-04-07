@@ -1,0 +1,167 @@
+/* BBC News responsive grid */
+
+$col-count: 12;
+$small-col-count: 24;
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin columns($number) {
+    // $colwidth: (100 / $number) * 1%;
+    width: col-width($number);
+}
+
+@mixin max-columns($number) {
+    // $colwidth: (100 / $number) * 1%;
+    max-width: col-width($number);
+}
+
+@function col-width($number) {
+    $colwidth: ($number / $col-count) * 100%;
+    @return $colwidth;
+}
+
+@function small-col-width($number) {
+    $colwidth: ($number / $small-col-count) * 100%;
+    @return $colwidth;
+}
+
+//Group 1
+$break--group-1: 399px;
+$page__margin--group-1: 8px;
+$page__gutter--group-1: 8px;
+
+//Group 2
+$break--group-2: 599px;
+$page__margin--group-2: 16px;
+$page__gutter--group-2: 8px;
+
+//Group 3
+$break--group-3: 1007px;
+$page__margin--group-3: 16px;
+$page__gutter--group-3: 16px;
+
+//Group 4
+// $break--group-2: 1007px;
+$page__margin--group-4: 16px;
+$page__gutter--group-4: 16px;
+
+%page-margins {
+    margin: 0 $page__margin--group-1;
+    max-width: 1008px;
+    @include break(480) { margin: 0 $page__margin--group-2; }
+    // @include break($break--g2) { margin: 0 $page__margin--group-2; }
+    @include break($break--g3) { margin: 0 $page__margin--group-3; }
+    @include break($break--g4) { margin: 0 auto; }
+}
+
+%page-padding {
+    padding: 0 $page__margin--group-1;
+    @include break(480) { padding: 0 $page__margin--group-2; }
+    // @include break($break--g2) { padding: 0 $page__margin--group-2; }
+    @include break($break--g3) { padding: 0 $page__margin--group-3; }
+    @include break($break--g4) { padding: 0 $page__margin--group-4; }
+
+    & > * {
+        max-width: 1008px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+%column {
+    padding: 0 $page__gutter--group-1 / 2;
+
+    @include break($break--g2) { padding: $page__gutter--group-2 / 2; }
+    @include break($break--g3) { padding: $page__gutter--group-3 / 2; }
+    @include break($break--g4) { padding: $page__gutter--group-4 / 2; }
+}
+
+.wrapper {
+    @extend %page-margins;
+    @include break($break--g4) { padding:  0 $page__margin--group-4; }
+}
+
+.wrapper-no-pad {
+    @extend %page-margins;
+    @include break($break--g4) { padding:  0 $page__margin--group-4 / 2; }    
+}
+
+.wrapper--text {
+    @extend %page-padding;
+}
+
+.col-1 {
+    @extend %column;
+    @include columns(1);
+}
+
+.col-2 {
+    @extend %column;
+    @include columns(2);
+}
+
+.col-3 {
+    @extend %column;
+    @include columns(3);
+}
+
+.col-4 {
+    @extend %column;
+    @include columns(4);
+}
+
+.col-5 {
+    @extend %column;
+    @include columns(5);
+}
+
+.col-6 {
+    @extend %column;
+    @include columns(6);
+}
+
+.col-7 {
+    @extend %column;
+    @include columns(7);
+}
+
+.col-8 {
+    @extend %column;
+    @include columns(8);
+}
+
+.col-9 {
+    @extend %column;
+    @include columns(9);
+}
+
+.col-10 {
+    @extend %column;
+    @include columns(10);
+}
+
+.col-11 {
+    @extend %column;
+    @include columns(11);
+}
+
+.col-12 {
+    @extend %column;
+    padding: 0;
+    width: 100%;
+}
+
+.left { float: left; }
+.right { float: right; }
+
+.content-section { margin-top: 1em; }
+
+

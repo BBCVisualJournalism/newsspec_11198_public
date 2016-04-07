@@ -1,0 +1,420 @@
+@import "break",
+        "cards";
+
+body {
+    background: $color--brand-white;
+    color: $color--text;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    margin: 0;
+
+    &.phantom {
+        background: $color--text;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.orb {
+    @extend %page-padding;
+    background: $color--brand-white;
+    min-height: 33px;
+    @include break($break--g3) { height: 40px; }
+}
+
+.orb-content {
+    // background-image: url('../img/bbc-blocks-dark.png');
+    max-width: 1008px;
+    // background-position: .5em center;
+    // background-repeat: no-repeat;
+    height: 100%;
+
+    img {
+        margin: .3em 0;
+        position: relative;
+        top: .0625rem;
+
+        @include break($break--g3) {
+            margin: .5em;
+            top: .125rem;
+        }
+    }
+}
+
+.nav {
+    @extend %page-padding;
+    background: $color--brand-red;
+    min-height: 56px;
+    position: relative;
+    @include break($break--g2) { min-height: 56px; }
+    @include break($break--g3) { min-height: 64px; }
+}
+
+.nav-content {
+    background-image: url('../img/news.png');
+    background-position: .5em center;
+    background-repeat: no-repeat;
+    background-size: 7.5em;
+    position: relative;
+    height: 56px;
+    top: 50%;
+    // margin-top: -28px;
+    @include break($break--g3) { height: 64px; }
+}
+
+.menu-button {
+    background: url('../img/menu.svg') .7rem center no-repeat;
+    border: 1px solid #fff;
+    border-color: rgba(255,255,255,0.3);
+    bottom: 8px;
+    color: #fff;
+    display: inline-block;
+    float: right;
+    font-size: .875rem;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    line-height: 1.4em;
+    padding: 9px 12px 9px 2.2rem;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 8px;
+
+    @include break(600) {
+        display: none;
+    }
+}
+
+.nav-items {
+    background: $color--brand-red;
+    border-top: 1px solid #da4c4c;
+    color: #fff;
+    display: none;
+    @extend %page-padding;
+
+    .nav-content {
+        background-image: none;
+        height: auto;
+    }
+
+    @include break(600) {
+        display: block;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+
+            li {
+                display: inline-block;
+                position: relative;
+
+                a {
+                    padding: .5rem .375rem;
+                    color: #fff;
+                    text-decoration: none;
+                    display: block;
+
+                    &.on {
+                        border-bottom: 4px solid #fff;
+                    }
+                }
+
+                & + li {
+                    &:before {
+                        height: 1.2rem;
+                        width: 1px;
+                        background-color: #da4c4c;
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        top: .5rem;
+                        left: -3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.debug .nav::after {
+    background: rgba(255, 255, 255, .8);
+    color: $color--brand-red;
+    content: "Group 1 devices";
+    display: block;
+    height: 2em;
+    margin-top: -1em;
+    padding: .5em 1em .5em .5em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: auto;
+
+    @include break($break--g2) { content: "Group 2 devices"; }
+    @include break($break--g3) { content: "Group 3 devices"; }
+    @include break($break--g4) { content: "Group 4 devices"; }
+}
+
+.page-share-tools {
+    @extend %page-padding;
+    color: $color--brand-green;
+    height: 2rem;
+    margin-bottom: -1rem;
+    position: relative;
+
+    p {
+        position: absolute;
+        right: .5rem;
+        top: 0;
+        margin: .75rem 0;
+
+        @include break(600) {
+            top: -.5rem;
+        }
+
+        @include break($break--g4) {
+            margin: .4rem 0;
+            text-align: right;
+            width: 1008px;
+            left: 50%;
+            margin-left: -504px;
+
+            span {
+                display: inline-block;
+                margin-right: 1rem;
+            }
+        }
+
+        span {
+            background: url('../img/icon--share-green.svg') left center no-repeat;
+            padding: .5rem .5rem .5rem 2rem;
+        }
+    }
+}
+
+.mini-hub {
+    @extend %page-padding;
+    overflow: hidden;
+
+    a, a > * {
+        text-decoration: none;
+    }
+
+    .election-logo {
+        margin: .5rem 0;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+    }
+
+    .ticker {
+
+        p {
+            background-color: $color--text;
+            background-image: url('../img/icon--live.svg');
+            background-position: .5rem .5rem;
+            background-repeat: no-repeat;
+            color: $color--brand-white;
+            font-size: .875rem;
+            margin: 0;
+            padding: .5rem .5rem .5rem 3rem;
+        }
+
+        .hub & {
+            @include break($break--g2) {
+                display: none;
+            }
+        }
+    }
+
+    @include break(650) {
+        .election-logo {
+            @include columns(4);
+            float: left;
+        }
+
+        .ticker {
+            @include columns(8);
+            float: right;
+            margin-top: 3%;
+            padding-left: 1rem;
+        }
+    }
+    //     .wrapper > * {
+    //         float: left;
+    //         margin-left: 4%;
+    //         width: 48%;
+
+    //         &:nth-child(2n-1) {
+    //             margin-left: 0;
+    //         }
+    //     }
+    // }
+}
+
+.sub-nav {
+    @extend %page-padding;
+
+    a {
+        color: $color--brand-black;
+        text-decoration: none;
+        display: block;
+    }
+
+    .site-section {
+        font-size: 1.25em;
+        margin: 0;
+        padding: .5em 0; 
+    }
+}
+
+.sub-nav__list {
+    border-bottom: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: none;
+    }
+
+    li:first-child{
+        display: block;
+        font-size: 1.25em;
+        margin: 0;
+        padding: .5em 0;
+        background: url('../img/chevron.svg') right center no-repeat;
+    }
+
+    @include break(600) {
+        border-bottom: 0;
+
+        li {
+            display: inline-block;
+            margin: 0 .5rem 0;
+            position: relative;
+        }
+
+        li:nth-child(n + 2) {
+            &:after {
+                display: block;
+                width: 1px;
+                height: 1rem;
+                position: absolute;
+                content: "";
+                top: .125rem;
+                left: -.6rem;
+                background: #ccc;
+            }
+        }
+
+        li:first-child{
+            background: transparent;
+            display: inline-block;
+            font-size: 1.25em;
+            margin: 0;
+            padding: .5em .5rem .375rem;
+            border-bottom: 4px solid $color--brand-red;
+        }
+    }
+}
+
+.footer {
+    background: #4c4c4c;
+    color: $color--brand-white;
+    min-height: 10em;
+    margin-top: 2.625em;
+    overflow: hidden;
+    padding-bottom: 1.5rem;
+
+    .footer-title {
+        line-height: 1;
+        font-size: 1.375rem;
+        margin-top: 1.3125rem;
+        margin-bottom: 2.125rem;
+    }
+
+    .footer-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            font-size: .875rem;
+            font-weight: bold;
+            float: left;
+            margin-left: 4%;
+            width: 48%;
+            margin-bottom: .75rem;
+
+            &:nth-child(2n-1) {
+                margin-left: 0;
+            }
+
+            @include break(550) {
+                margin-left: 5%;
+                width: 30%;
+                
+                &:nth-child(2n-1) {
+                    margin-left: 5%;
+                }
+
+                &:nth-child(3n-2) {
+                    margin-left: 0;
+                }
+            }
+            
+            @include break($break--g3) {
+                margin-left: 4%;
+                width: 22%;
+
+                &:nth-child(2n-1),
+                &:nth-child(3n-2) {
+                    margin-left: 4%;
+                }
+
+                &:nth-child(4n-3) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+}
+
+.image-credit {
+    background-image: url(../img/brand.svg);
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 300;
+}
+
+*::shadow {
+
+    box-sizing: border-box;
+
+    .card {
+        background-color: $color--brand-white;
+        border: 2px solid $color--brand-black;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        height: auto;
+        list-style: none;
+        margin: 0 0 1rem;
+        padding: .75rem;
+        width: 100%;
+    }
+
+}
+
+h3.spec {
+    margin-top: 0;
+    
+    &:not(:first-child) {
+        margin-top: 2em;
+    }
+}

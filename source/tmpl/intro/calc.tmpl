@@ -1,0 +1,48 @@
+<section class="calculator">
+    <%= include('intro/main-scene-styles.tmpl') %>
+        <!--[if IE 8]><div class="character-wrapper ie8"><![endif]-->
+        <!--[if gt IE 8]><!--><div class="character-wrapper"><!--<![endif]-->
+        <div class="scene--full">
+            <%= include('intro/characters.tmpl') %>
+        </div>
+        <div class="scene--simplified">
+            <%= include('intro/characters_mini.tmpl') %>
+        </div>
+    </div>
+    <div class="input-box">
+        <%= include('user-input.tmpl') %>
+    </div>
+    <div class="bg-imagery">
+        <!--[if IE 8]><div class="scene--full scene--background ie8"><![endif]-->
+        <!--[if gt IE 8]><!--><div class="scene--full scene--background"><!--<![endif]-->
+            <%= include('intro/scene_optim.tmpl') %>
+        </div>
+        <div class="scene--simplified">
+            <%= include('intro/scene_mini.tmpl') %>
+        </div>
+    </div>
+    <div class="main-scene__drone-wrapper">
+        <div class="main-scene__drone">
+            <%= include('intro/drone.tmpl') %>
+        </div>
+    </div>
+    <div class="main-scene__rocketman-wrapper">
+        <div class="main-scene__rocketman">
+            <%= include('intro/rocketman.tmpl') %>
+            <div class="rocketman__flame">
+                <%= include('intro/flame.tmpl') %>
+            </div>
+        </div>
+    </div>
+    <div class="main-scene__forklift-wrapper">
+        <div class="main-scene__forklift">
+            <%= include('intro/forklift.tmpl') %>
+            <div class="forklift__wheel-1">
+                <%= include('intro/forklift-wheel-1.tmpl') %>
+            </div>
+            <div class="forklift__wheel-2">
+                <%= include('intro/forklift-wheel-2.tmpl') %>
+            </div>
+        </div>
+    </div>
+</section>

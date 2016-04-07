@@ -1,0 +1,192 @@
+@mixin button--standard {
+    @include text-rendering;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 .6667em .8889em 0;
+    padding: .55em .8em .5em;
+    text-decoration: none;
+    -webkit-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    -moz-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    -ms-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    -o-transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    transition: background-color .3s ease, min-width .5s ease, color .3s ease, border-color .3s ease;
+    width: auto;
+}
+
+%button--naked {
+    @include button--standard;
+    background-color: $color--brand-teal;
+    border: 2px solid $color--brand-teal;
+    color: $color--brand-white;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-teal__dark1;
+        border: 2px solid $color--brand-teal__dark1;
+    }
+}
+
+%button--secondary {
+    @include button--standard;
+    background-color: transparent;
+    border: 2px solid $color--brand-teal;
+    color: $color--brand-teal;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-teal;
+        border: 2px solid $color--brand-teal;
+        color: $color--brand-white;
+    }
+}
+
+%button--secondary--white {
+    @include button--standard;
+    background-color: transparent;
+    border: 2px solid $color--brand-white;
+    color: $color--brand-white;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-teal;
+        border: 2px solid $color--brand-teal;
+        color: $color--brand-white;
+    }
+}
+
+%button--link {
+    @include button--standard;
+    background-color: $color--brand-green;
+    background-image: url(../img/frame/icon--link.png);
+    background-image: url(../img/frame/icon--link.svg), none;
+    background-position: left .05em;
+    background-size: 2.3em;
+    background-repeat: no-repeat;
+    border: 2px solid $color--brand-green;
+    padding-left: 2em;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-green__light;
+        border: 2px solid $color--brand-green__light;
+    }
+}
+
+%button--share {
+    @extend %button--link;
+    background-image: url(../img/frame/icon--share-white.png);
+    background-image: url(../img/frame/icon--share-white.svg), none;
+    background-size: 1.8em;
+    background-position: .3em center;
+    padding-left: 2.3em;
+}
+
+%button--cta,
+%button--cta-reverse,
+%button--reset {
+    @include button--standard;
+    background-repeat: no-repeat;
+}
+
+%button--cta {
+    background-image: url(../img/frame/chevron--white-right.png);
+    background-image: url(../img/frame/chevron--white-right.svg), none;
+    background-position: right center;
+    padding-right: 1.75em;
+}
+
+%button--cta-reverse {
+    background-image: url(../img/frame/chevron--white-left.png);
+    background-image: url(../img/frame/chevron--white-left.svg), none;
+    background-position: left center;
+    padding-left: 1.75em;
+}
+
+%button--reset {
+    background-image: url(../img/frame/icon--reset.png);
+    background-image: url(../img/frame/icon--reset.svg), none;
+    background-position: -.25em center;
+    padding-left: 2em;
+}
+
+%button--cta-feature {
+    @extend %button--cta;
+    font-family: $font--display;
+    font-weight: 500;
+    line-height: 1;
+}
+
+%button--pagination-next {
+    @extend %button--cta;
+}
+
+%button--pagination-prev {
+    @extend %button--cta-reverse;
+}
+
+%button--inactive {
+    @include button--standard;
+    background-color: $color--brand-grey__mid;
+    background-image: none;
+    border-color: $color--brand-grey__mid;
+    border: 2px solid $color--brand-grey__mid;
+    color: $color--brand-black;
+    cursor: default;
+    pointer-events: none;
+    position: relative;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color--brand-grey__mid;
+        border: 2px solid $color--brand-grey__mid;
+    }
+}
+
+%button--loading,
+.loading {
+    display: inline-block;
+    /*margin: 0 auto;*/
+    padding-left: 1.75em;
+    position: relative;
+    text-align: center;
+    
+    &:before {
+        // background: #f0f;
+        -webkit-animation: spin 2s linear infinite;
+        -moz-animation: spin 2s linear infinite;
+        -ms-animation: spin 2s linear infinite;
+        -o-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        background-image: url(../img/frame/icon--loading.png);
+        background-image: url(../img/frame/icon--loading.svg), none;
+        background-position: center center;
+        background-size: 110%;
+        background-repeat: no-repeat;
+        bottom: 0;
+        content: "";
+        display: block;
+        left: -.15em;
+        -webkit-transform-origin: center center;
+        -moz-transform-origin: center center;
+        -ms-transform-origin: center center;
+        -o-transform-origin: center center;
+        transform-origin: center center;
+        top: 0;
+        position: absolute;
+        width: 2em;
+        z-index: 5;
+    }
+}
+
+.complete {
+    background-color: $color--brand-green;
+}
+
+@keyframes spin { 100% { transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }

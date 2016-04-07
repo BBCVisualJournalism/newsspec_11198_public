@@ -1,0 +1,25 @@
+// Clearfix
+
+// @include clearfix;
+
+@mixin clearfix {
+    &::after {
+        content: " ";
+        font-size: 0;
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    .oldie &:after {
+        content: " ";
+        font-size: 0;
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+}
